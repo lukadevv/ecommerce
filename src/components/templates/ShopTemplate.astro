@@ -1,0 +1,38 @@
+---
+import { MOCK_BestSellers, MOCK_products } from "../../mocks/products";
+import CategoryColumn from "../molecules/CategoryColumn.astro";
+import ProductColumn from "../molecules/ProductColumn.astro";
+import ProductsShowcase from "../organisms/ProductsShowcase.astro";
+import ProductsView from "../organisms/ProductsView.astro";
+---
+
+<section>
+  <div class="left">
+    <CategoryColumn />
+    <ProductColumn title="Best sellers" products={MOCK_BestSellers} />
+  </div>
+  <div class="right">
+    <ProductsShowcase />
+    <ProductsView products={MOCK_products} />
+  </div>
+</section>
+
+<style>
+  section {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr 9fr;
+
+    .left {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .right {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+  }
+</style>

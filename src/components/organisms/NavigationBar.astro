@@ -1,0 +1,51 @@
+---
+import { Logo } from "../atoms/Logo";
+import { GithubButton } from "../atoms/GitHubButton";
+import { SearchBar } from "../molecules/SearchBar";
+import { UserButton } from "../atoms/UserButton";
+import { UserCart } from "../atoms/UserCart";
+import { ThemeModeButton } from "../atoms/ThemeModeButton";
+---
+
+<nav class="bg-slate-600 py-2">
+  <div class="nav-content">
+    <div>
+      <Logo size={80} />
+    </div>
+    <div class="search-bar">
+      <SearchBar />
+    </div>
+    <div class="buttons">
+      <UserButton client:load />
+      <UserCart client:load />
+      <ThemeModeButton client:load />
+      <GithubButton />
+    </div>
+  </div>
+</nav>
+
+<style>
+  nav {
+    .nav-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      max-width: 1140px;
+      margin: auto;
+      padding: 0 15px 0 15px;
+      gap: 35px;
+
+      .search-bar {
+        width: 100%;
+      }
+
+      .buttons {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+      }
+    }
+  }
+</style>

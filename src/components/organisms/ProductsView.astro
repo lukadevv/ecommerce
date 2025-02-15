@@ -1,0 +1,31 @@
+---
+import type { ProductType } from "../../models/product.model";
+import { Product } from "../molecules/Product.tsx";
+
+interface Props {
+  products: ProductType[];
+}
+
+const { products } = Astro.props;
+---
+
+<section id="products">
+  <h5 class="font-bold ml-2 uppercase">
+    products ({products.length})
+  </h5>
+  <div>
+    {products.map((product) => <Product client:load {...product} />)}
+  </div>
+</section>
+
+<style>
+  div {
+    display: grid;
+    gap: 10px;
+    width: 100%;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-start: 1;
+    justify-items: start;
+    margin-top: 15px;
+  }
+</style>

@@ -1,0 +1,33 @@
+---
+import { MOCK_categories } from "../../mocks/products";
+import { ButtonAnchor } from "../ui/button_anchor";
+---
+
+<section>
+  <h6 class="uppercase font-bold">category</h6>
+  <div>
+    {
+      MOCK_categories.map((name) => (
+        <ButtonAnchor
+          key={name}
+          variant={"secondary"}
+          className="w-full capitalize"
+          href="#products"
+        >
+          {name}
+        </ButtonAnchor>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  section {
+    div {
+      padding-top: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+  }
+</style>

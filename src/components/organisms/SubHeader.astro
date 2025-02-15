@@ -1,0 +1,27 @@
+---
+import { appendUrlPath } from "../../utils/path";
+import { NavigationButton } from "../atoms/NavigationButton";
+---
+
+<section class="bg-slate-500">
+  <div>
+    <NavigationButton href={appendUrlPath("/")} text="home" />
+    <NavigationButton href={appendUrlPath("#products")} text="shop" />
+    <NavigationButton href={appendUrlPath("#products")} text="categories" />
+    <NavigationButton href={appendUrlPath("#popular")} text="popular" />
+    <NavigationButton href={appendUrlPath("#popular")} text="newest" />
+    <NavigationButton href={"https://github.com/lukadevv"} text="github" />
+  </div>
+</section>
+
+<style>
+  section {
+    div {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 580px;
+      margin: auto;
+    }
+  }
+</style>

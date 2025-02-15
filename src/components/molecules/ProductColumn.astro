@@ -1,0 +1,25 @@
+---
+import type { ProductType } from "../../models/product.model";
+import { Product } from "./Product.tsx";
+
+interface Props {
+  title: string;
+  products: ProductType[];
+}
+
+const { title, products } = Astro.props;
+---
+
+<div>
+  <h5 class="font-bold ml-2 text-2xl mb-2">{title}</h5>
+  {products.map((product) => <Product client:load {...product} />)}
+</div>
+
+<style>
+  div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+</style>

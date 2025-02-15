@@ -1,0 +1,29 @@
+---
+import "../styles/global.css";
+import Layout from "../layouts/Layout.astro";
+import NavigationBar from "../components/organisms/NavigationBar.astro";
+import SubHeader from "../components/organisms/SubHeader.astro";
+import Banner from "../components/molecules/Banner.astro";
+import ShopTemplate from "../components/templates/ShopTemplate.astro";
+import { Toaster } from "../components/ui/toaster";
+---
+
+<Layout>
+  <header>
+    <NavigationBar />
+    <SubHeader />
+  </header>
+  <main>
+    <Banner />
+    <ShopTemplate />
+  </main>
+  <Toaster client:load />
+</Layout>
+
+<style>
+  main {
+    max-width: 1440px;
+    margin: auto;
+    padding: 15px 25px 25px 25px;
+  }
+</style>
