@@ -8,12 +8,11 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   site: "https://lukadevv.github.io",
   base: "/ecommerce",
-  output: "static",
   integrations: [react()],
   vite: {
-    ssr: {
-      noExternal: /@mui\/.*?/,
-    },
     plugins: [tailwindcss()],
+  },
+  build: {
+    format: "directory",
   },
 });

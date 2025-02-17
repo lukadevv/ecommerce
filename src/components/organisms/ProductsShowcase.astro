@@ -5,13 +5,17 @@ import {
   MOCK_Trending,
 } from "../../mocks/products";
 import ProductColumn from "../molecules/ProductColumn.astro";
+
+const NewArrivals = MOCK_NewArrivals;
+const Trending = MOCK_Trending;
+const TopRated = MOCK_TopRated;
 ---
 
 <section
   id="popular"
   class="grid gap-3 xl:grid-cols-3 lg:grid-cols-2 grid-cols-1"
 >
-  <ProductColumn title="New Arrivals" products={MOCK_NewArrivals} />
-  <ProductColumn title="Trending" products={MOCK_Trending} />
-  <ProductColumn title="Top Rated" products={MOCK_TopRated} />
+  <ProductColumn title="New Arrivals" products={NewArrivals} />
+  <ProductColumn title="Trending" products={Trending} />
+  <ProductColumn title="Top Rated" products={TopRated} />
 </section>

@@ -1,4 +1,4 @@
-import type { GetImageResult } from "astro";
+import type { ImageMetadata } from "astro";
 
 // TODO: Add comments
 export type ProductType = {
@@ -8,7 +8,7 @@ export type ProductType = {
   category: string;
   brand: string;
   tags: string[];
-  images: GetImageResult[];
+  images: ImageMetadata[];
   date: Date;
   price: {
     original: number;

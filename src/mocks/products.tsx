@@ -1,39 +1,53 @@
 import type { ProductType } from "../models/product.model";
-import raw_Image1 from "./images/1.jpg";
-import raw_Image2 from "./images/2.jpg";
-import raw_Image3 from "./images/3.jpg";
-import raw_Image4 from "./images/4.jpg";
-import raw_Image5 from "./images/5.jpg";
-import raw_Image6 from "./images/6.jpg";
-import raw_Image7 from "./images/7.jpg";
-import raw_Image8 from "./images/8.jpg";
-import raw_Image9 from "./images/9.jpg";
-import raw_Image10 from "./images/10.jpg";
-import raw_Image11 from "./images/11.jpg";
-import { getImage } from "astro:assets";
-import type { ImageMetadata } from "astro";
+import Image1 from "./images/1.webp";
+import Image2 from "./images/2.webp";
+import Image3 from "./images/3.webp";
+import Image4 from "./images/4.webp";
+import Image5 from "./images/5.webp";
+import Image6 from "./images/6.webp";
+import Image7 from "./images/7.webp";
+import Image8 from "./images/8.webp";
+import Image9 from "./images/9.webp";
+import Image10 from "./images/10.webp";
+import Image11 from "./images/11.webp";
+// import { getImage } from "astro:assets";
+// import type { ImageMetadata } from "astro";
 
-async function optimizeImage(img: ImageMetadata) {
-  return await getImage({
-    src: img,
-    width: 500,
-    height: 500,
-    format: "webp",
-    quality: "mid",
-  });
-}
+// async function optimizeImage(img: ImageMetadata) {
+//   return await getImage({
+//     src: img,
+//     width: 500,
+//     height: 500,
+//     format: "webp",
+//     quality: "mid",
+//   });
+// }
 
-const Image1 = await optimizeImage(raw_Image1),
-  Image2 = await optimizeImage(raw_Image2),
-  Image3 = await optimizeImage(raw_Image3),
-  Image4 = await optimizeImage(raw_Image4),
-  Image5 = await optimizeImage(raw_Image5),
-  Image6 = await optimizeImage(raw_Image6),
-  Image7 = await optimizeImage(raw_Image7),
-  Image8 = await optimizeImage(raw_Image8),
-  Image9 = await optimizeImage(raw_Image9),
-  Image10 = await optimizeImage(raw_Image10),
-  Image11 = await optimizeImage(raw_Image11);
+// const [
+//   Image1,
+//   Image2,
+//   Image3,
+//   Image4,
+//   Image5,
+//   Image6,
+//   Image7,
+//   Image8,
+//   Image9,
+//   Image10,
+//   Image11,
+// ] = await Promise.all([
+//   optimizeImage(raw_Image1),
+//   optimizeImage(raw_Image2),
+//   optimizeImage(raw_Image3),
+//   optimizeImage(raw_Image4),
+//   optimizeImage(raw_Image5),
+//   optimizeImage(raw_Image6),
+//   optimizeImage(raw_Image7),
+//   optimizeImage(raw_Image8),
+//   optimizeImage(raw_Image9),
+//   optimizeImage(raw_Image10),
+//   optimizeImage(raw_Image11),
+// ]);
 
 // TODO: Add products
 export const MOCK_products: ProductType[] = [

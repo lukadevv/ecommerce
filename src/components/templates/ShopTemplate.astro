@@ -4,16 +4,19 @@ import CategoryColumn from "../molecules/CategoryColumn.astro";
 import ProductColumn from "../molecules/ProductColumn.astro";
 import ProductsShowcase from "../organisms/ProductsShowcase.astro";
 import ProductsView from "../organisms/ProductsView.astro";
+
+const products = MOCK_products;
+const bestSellers = MOCK_BestSellers;
 ---
 
 <section class="grid gap-10 max-md:flex max-md:flex-col">
   <div class="flex flex-col gap-10">
     <CategoryColumn />
-    <ProductColumn title="Best sellers" products={MOCK_BestSellers} />
+    <ProductColumn title="Best sellers" products={bestSellers} />
   </div>
   <div class="flex flex-col gap-10 min-w-0">
     <ProductsShowcase />
-    <ProductsView products={MOCK_products} />
+    <ProductsView products={products} />
   </div>
 </section>
 
