@@ -6,12 +6,12 @@ import ProductsShowcase from "../organisms/ProductsShowcase.astro";
 import ProductsView from "../organisms/ProductsView.astro";
 ---
 
-<section>
-  <div class="left">
+<section class="grid gap-10 max-md:flex max-md:flex-col">
+  <div class="flex flex-col gap-10">
     <CategoryColumn />
     <ProductColumn title="Best sellers" products={MOCK_BestSellers} />
   </div>
-  <div class="right">
+  <div class="flex flex-col gap-10 min-w-0">
     <ProductsShowcase />
     <ProductsView products={MOCK_products} />
   </div>
@@ -19,20 +19,6 @@ import ProductsView from "../organisms/ProductsView.astro";
 
 <style>
   section {
-    display: grid;
-    gap: 20px;
     grid-template-columns: 1fr 9fr;
-
-    .left {
-      display: flex;
-      flex-direction: column;
-      gap: 25px;
-    }
-
-    .right {
-      display: flex;
-      flex-direction: column;
-      gap: 25px;
-    }
   }
 </style>

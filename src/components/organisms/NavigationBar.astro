@@ -1,5 +1,5 @@
 ---
-import { Logo } from "../atoms/Logo";
+import Logo from "../atoms/Logo.astro";
 import { GithubButton } from "../atoms/GitHubButton";
 import { SearchBar } from "../molecules/SearchBar";
 import { UserButton } from "../atoms/UserButton";
@@ -12,7 +12,7 @@ import { ThemeModeButton } from "../atoms/ThemeModeButton";
     <div>
       <Logo size={80} />
     </div>
-    <div class="search-bar">
+    <div class="search-bar max-sm:invisible max-sm:max-w-0">
       <SearchBar />
     </div>
     <div class="buttons">

@@ -1,3 +1,5 @@
+import type { GetImageResult } from "astro";
+
 // TODO: Add comments
 export type ProductType = {
   id: string;
@@ -6,7 +8,7 @@ export type ProductType = {
   category: string;
   brand: string;
   tags: string[];
-  images: string[];
+  images: GetImageResult[];
   date: Date;
   price: {
     original: number;

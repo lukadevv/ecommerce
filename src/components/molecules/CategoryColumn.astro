@@ -3,9 +3,9 @@ import { MOCK_categories } from "../../mocks/products";
 import { ButtonAnchor } from "../ui/button_anchor";
 ---
 
-<section>
-  <h6 class="uppercase font-bold">category</h6>
-  <div>
+<section class="mt-3">
+  <h6 class="uppercase font-bold">categories</h6>
+  <div class="flex flex-col gap-2 mt-3">
     {
       MOCK_categories.map((name) => (
         <ButtonAnchor
@@ -20,14 +20,3 @@ import { ButtonAnchor } from "../ui/button_anchor";
     }
   </div>
 </section>
-
-<style>
-  section {
-    div {
-      padding-top: 10px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-  }
-</style>

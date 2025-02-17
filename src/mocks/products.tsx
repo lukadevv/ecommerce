@@ -1,15 +1,39 @@
 import type { ProductType } from "../models/product.model";
-import Image1 from "./images/1.jpg";
-import Image2 from "./images/2.jpg";
-import Image3 from "./images/3.jpg";
-import Image4 from "./images/4.jpg";
-import Image5 from "./images/5.jpg";
-import Image6 from "./images/6.jpg";
-import Image7 from "./images/7.jpg";
-import Image8 from "./images/8.jpg";
-import Image9 from "./images/9.jpg";
-import Image10 from "./images/10.jpg";
-import Image11 from "./images/11.jpg";
+import raw_Image1 from "./images/1.jpg";
+import raw_Image2 from "./images/2.jpg";
+import raw_Image3 from "./images/3.jpg";
+import raw_Image4 from "./images/4.jpg";
+import raw_Image5 from "./images/5.jpg";
+import raw_Image6 from "./images/6.jpg";
+import raw_Image7 from "./images/7.jpg";
+import raw_Image8 from "./images/8.jpg";
+import raw_Image9 from "./images/9.jpg";
+import raw_Image10 from "./images/10.jpg";
+import raw_Image11 from "./images/11.jpg";
+import { getImage } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
+async function optimizeImage(img: ImageMetadata) {
+  return await getImage({
+    src: img,
+    width: 500,
+    height: 500,
+    format: "webp",
+    quality: "mid",
+  });
+}
+
+const Image1 = await optimizeImage(raw_Image1),
+  Image2 = await optimizeImage(raw_Image2),
+  Image3 = await optimizeImage(raw_Image3),
+  Image4 = await optimizeImage(raw_Image4),
+  Image5 = await optimizeImage(raw_Image5),
+  Image6 = await optimizeImage(raw_Image6),
+  Image7 = await optimizeImage(raw_Image7),
+  Image8 = await optimizeImage(raw_Image8),
+  Image9 = await optimizeImage(raw_Image9),
+  Image10 = await optimizeImage(raw_Image10),
+  Image11 = await optimizeImage(raw_Image11);
 
 // TODO: Add products
 export const MOCK_products: ProductType[] = [
@@ -21,7 +45,7 @@ export const MOCK_products: ProductType[] = [
     category: "Electronics",
     brand: "Keytron",
     tags: ["keyboard", "wireless", "mechanical", "RGB"],
-    images: [Image1.src],
+    images: [Image1],
     date: new Date(),
     price: { original: 120, discounted: 99, currency: "USD" },
     stock: { quantity: 50 },
@@ -35,12 +59,12 @@ export const MOCK_products: ProductType[] = [
     category: "Electronics",
     brand: "SoundMax",
     tags: ["headphones", "noise cancelling", "wireless"],
-    images: [Image2.src],
+    images: [Image2],
     date: new Date(),
     price: { original: 200, discounted: 180, currency: "USD" },
     stock: { quantity: 30 },
     dimensions: { length: 20, width: 18, height: 10, weight: 0.8 },
-    ratings: { averageRating: 4.7, reviews: [] },
+    ratings: { averageRating: 4.8, reviews: [] },
   },
   {
     id: "3",
@@ -50,7 +74,7 @@ export const MOCK_products: ProductType[] = [
     category: "Wearables",
     brand: "TechWear",
     tags: ["smartwatch", "fitness", "wearable"],
-    images: [Image3.src],
+    images: [Image3],
     date: new Date(),
     price: { original: 300, discounted: 270, currency: "USD" },
     stock: { quantity: 20 },
@@ -64,7 +88,7 @@ export const MOCK_products: ProductType[] = [
     category: "Electronics",
     brand: "VisionTech",
     tags: ["monitor", "4K", "ultra HD"],
-    images: [Image4.src],
+    images: [Image4],
     date: new Date(),
     price: { original: 500, discounted: 450, currency: "USD" },
     stock: { quantity: 15 },
@@ -78,7 +102,7 @@ export const MOCK_products: ProductType[] = [
     category: "Accessories",
     brand: "GamePro",
     tags: ["mouse", "gaming", "RGB"],
-    images: [Image5.src],
+    images: [Image5],
     date: new Date(),
     price: { original: 60, discounted: 50, currency: "USD" },
     stock: { quantity: 40 },
@@ -92,7 +116,7 @@ export const MOCK_products: ProductType[] = [
     category: "Storage",
     brand: "SpeedDrive",
     tags: ["SSD", "external", "storage"],
-    images: [Image6.src],
+    images: [Image6],
     date: new Date(),
     price: { original: 150, discounted: 130, currency: "USD" },
     stock: { quantity: 25 },
@@ -106,7 +130,7 @@ export const MOCK_products: ProductType[] = [
     category: "Furniture",
     brand: "ErgoSeat",
     tags: ["chair", "office", "ergonomic"],
-    images: [Image7.src],
+    images: [Image7],
     date: new Date(),
     price: { original: 250, discounted: 220, currency: "USD" },
     stock: { quantity: 10 },
@@ -120,7 +144,7 @@ export const MOCK_products: ProductType[] = [
     category: "Electronics",
     brand: "HyperType",
     tags: ["keyboard", "gaming", "mechanical"],
-    images: [Image8.src],
+    images: [Image8],
     date: new Date(),
     price: { original: 100, discounted: 85, currency: "USD" },
     stock: { quantity: 35 },
@@ -134,7 +158,7 @@ export const MOCK_products: ProductType[] = [
     category: "Accessories",
     brand: "FlexStand",
     tags: ["stand", "smartphone", "tablet"],
-    images: [Image9.src],
+    images: [Image9],
     date: new Date(),
     price: { original: 20, currency: "USD" },
     stock: { quantity: 60 },
@@ -148,7 +172,7 @@ export const MOCK_products: ProductType[] = [
     category: "Accessories",
     brand: "MultiHub",
     tags: ["USB-C", "docking station", "hub"],
-    images: [Image10.src, Image11.src],
+    images: [Image10, Image11],
     date: new Date(),
     price: { original: 80, discounted: 70, currency: "USD" },
     stock: { quantity: 20 },
@@ -175,4 +199,4 @@ export const MOCK_TopRated = [...MOCK_products]
   .slice(0, 4);
 export const MOCK_BestSellers = [...MOCK_products]
   .sort(() => Math.random() - 0.5)
-  .slice(0, 3);
+  .slice(0, 8);

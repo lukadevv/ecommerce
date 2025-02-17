@@ -13,8 +13,8 @@ import {
 } from "../ui/dialog";
 import { useCallback, useMemo, useState } from "react";
 import { clearCart, type CartProductType } from "../../store/cart.store";
-import { Product } from "../molecules/Product";
 import { CardsPaymentMethod } from "../molecules/PaymentMethod";
+import { Product } from "../molecules/Product";
 
 export function UserCart() {
   const [open, setOpen] = useState<boolean>(false);

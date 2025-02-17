@@ -1,4 +1,3 @@
-import { Rating } from "../atoms/Rating";
 import {
   Card,
   CardContent,
@@ -26,10 +25,9 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "../ui/carousel";
-import { appendUrlPath } from "../../utils/path";
 import { addCartItem } from "../../store/cart.store";
 import { useToast } from "../../hooks/use-toast";
-import { useCart } from "../../hooks/use-cart";
+import { Rating } from "../atoms/Rating";
 
 export function Product(product: ProductType) {
   const {
@@ -37,9 +35,9 @@ export function Product(product: ProductType) {
     name,
     description,
     price: { original, discounted, currency },
-    ratings: { averageRating },
     images,
     tags,
+    ratings: { averageRating },
   } = product;
 
   const [open, setOpen] = useState<boolean>(false);
@@ -87,9 +85,12 @@ export function Product(product: ProductType) {
             }}
           >
             <img
-              src={images[0]}
+              src={images[0].src}
               alt="Product image"
               className="my-auto h-full object-scale-down"
+              style={{
+                objectFit: "cover",
+              }}
             />
           </div>
           <CardHeader className="h-fit my-2 p-0 overflow-hidden w-full">
@@ -122,14 +123,11 @@ export function Product(product: ProductType) {
             <Carousel className="w-full max-w-xs">
               <CarouselContent>
                 {images.map((each) => (
-                  <CarouselItem key={each}>
+                  <CarouselItem key={each.src}>
                     <div className="p-1">
                       <Card>
                         <CardContent className="flex aspect-square items-center justify-center p-6">
-                          <img
-                            src={appendUrlPath(each)}
-                            alt={"Product Image"}
-                          />
+                          <img src={each.src} alt={"Product image"} />
                         </CardContent>
                       </Card>
                     </div>
