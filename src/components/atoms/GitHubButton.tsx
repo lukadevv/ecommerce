@@ -7,6 +7,8 @@ export function GithubButton() {
       variant="destructive"
       size="icon"
       href="https://github.com/lukadevv"
+      aria-label="Creator github profile"
+      className="max-[230px]:hidden"
     >
       <GithubIcon />
     </ButtonAnchor>

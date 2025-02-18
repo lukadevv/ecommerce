@@ -5,7 +5,7 @@ import banner from "../../assets/content/banner.jpg";
 ---
 
 <section
-  class="w-full mb-6 py-26 hover:opacity-95 transition-all delay-200"
+  class="w-full mt-8 mb-28 py-26"
   style="position: relative; overflow: hidden; box-shadow: -1px 2px 7px 1px #2727275e;"
 >
   <Image
@@ -22,21 +22,30 @@ import banner from "../../assets/content/banner.jpg";
       height: "100%",
       objectPosition: "top right",
     }}
+    loading="eager"
   />
   <div class="flex flex-col ml-10" style={{ width: "50%" }}>
     <h1 class="text-3xl font-bold text-blue-200">Trending Accessories</h1>
     <h2 class="text-6xl font-bold text-slate-100">Modern Products</h2>
-    <div class="flex items-end mt-8 mb-1">
+    <div class="flex items-center mt-8 mb-1 w-max">
       <p class="text-blue-100">Starting at</p>
-      <span class="text-2xl font-bold ml-2 text-red-200">$15.00</span>
+      <p class="text-2xl font-bold ml-2 text-red-200">$15.00</p>
     </div>
-    <Button className="my-1 w-fit mt-5 hover:animate-pulse" size={"lg"}>SHOP NOW</Button>
+    <Button className="my-1 w-fit mt-5 hover:animate-pulse" size={"lg"}
+      >SHOP NOW</Button
+    >
   </div>
 </section>
 
 <style>
   section {
     border-radius: 15px;
+
+    display: grid;
+    grid-template-columns: 200px 200px 200px;
+
+    transform: perspective(1000px)
+    transform-style: preserve-3d;
 
     div:first-child {
       padding: 35px;

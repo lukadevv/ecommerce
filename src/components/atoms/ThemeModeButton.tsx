@@ -24,6 +24,8 @@ export function ThemeModeButton() {
       variant={"secondary"}
       size={"icon"}
       onClick={() => setThemeState(theme === "dark" ? "theme-light" : "dark")}
+      aria-label="Change theme button"
+      className="max-[295px]:hidden"
     >
       {theme === "dark" ? <Sun /> : <Moon />}
     </Button>

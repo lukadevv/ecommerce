@@ -16,9 +16,9 @@ const { size } = Astro.props as AstroProps;
     width: `${size}px`,
     transform: "translate(0, -65%)",
   }}
-  class="hover:animate-pulse"
+  class="hover:animate-pulse max-[200px]:hidden"
 >
-  <a href={appendUrlPath("/")}>
+  <a href={appendUrlPath("/")} aria-label="Home button">
     <Image
       src={logo}
       width={size * 1.35}

@@ -10,44 +10,6 @@ import Image8 from "./images/8.webp";
 import Image9 from "./images/9.webp";
 import Image10 from "./images/10.webp";
 import Image11 from "./images/11.webp";
-// import { getImage } from "astro:assets";
-// import type { ImageMetadata } from "astro";
-
-// async function optimizeImage(img: ImageMetadata) {
-//   return await getImage({
-//     src: img,
-//     width: 500,
-//     height: 500,
-//     format: "webp",
-//     quality: "mid",
-//   });
-// }
-
-// const [
-//   Image1,
-//   Image2,
-//   Image3,
-//   Image4,
-//   Image5,
-//   Image6,
-//   Image7,
-//   Image8,
-//   Image9,
-//   Image10,
-//   Image11,
-// ] = await Promise.all([
-//   optimizeImage(raw_Image1),
-//   optimizeImage(raw_Image2),
-//   optimizeImage(raw_Image3),
-//   optimizeImage(raw_Image4),
-//   optimizeImage(raw_Image5),
-//   optimizeImage(raw_Image6),
-//   optimizeImage(raw_Image7),
-//   optimizeImage(raw_Image8),
-//   optimizeImage(raw_Image9),
-//   optimizeImage(raw_Image10),
-//   optimizeImage(raw_Image11),
-// ]);
 
 // TODO: Add products
 export const MOCK_products: ProductType[] = [

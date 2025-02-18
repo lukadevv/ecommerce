@@ -57,6 +57,7 @@ export function UserCart() {
             size="icon"
             className="relative"
             onClick={() => cartItems.length > 0 && setOpen(true)}
+            aria-label="Cart button"
           >
             <ShoppingBagIcon />
           </Button>

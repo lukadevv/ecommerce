@@ -3,7 +3,7 @@ import Logo from "../atoms/Logo.astro";
 import { GithubButton } from "../atoms/GitHubButton";
 import { SearchBar } from "../molecules/SearchBar";
 import { UserButton } from "../atoms/UserButton";
-import { UserCart } from "../atoms/UserCart";
+import { UserCart } from "../atoms/UserCartButton";
 import { ThemeModeButton } from "../atoms/ThemeModeButton";
 ---
 
@@ -12,10 +12,10 @@ import { ThemeModeButton } from "../atoms/ThemeModeButton";
     <div>
       <Logo size={80} />
     </div>
-    <div class="search-bar max-sm:invisible max-sm:max-w-0">
+    <div class="search-bar max-sm:hidden max-sm:max-w-0">
       <SearchBar />
     </div>
-    <div class="buttons">
+    <div class="buttons max-[200px]:content-center">
       <UserButton client:load />
       <UserCart client:load />
       <ThemeModeButton client:load />

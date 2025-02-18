@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig } from "astro/config";
 import react from "@astrojs/react";
+import AstroPWA from "@vite-pwa/astro";
 
 import tailwindcss from "@tailwindcss/vite";
 
@@ -8,11 +9,22 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   site: "https://lukadevv.github.io",
   base: "/ecommerce",
-  integrations: [react()],
+  integrations: [
+    react(),
+    AstroPWA({
+      manifestFilename: "/ecommerce/manifest.json",
+      devOptions: {
+        enabled: true,
+        type: "module",
+      },
+      registerType: "autoUpdate",
+    }),
+  ],
   vite: {
     plugins: [tailwindcss()],
-  },
-  build: {
-    format: "directory",
+    build: {
+      minify: true,
+      sourcemap: false,
+    },
   },
 });

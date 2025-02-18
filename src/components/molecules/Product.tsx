@@ -16,7 +16,7 @@ import {
 } from "../ui/dialog";
 import { Button } from "../ui/button";
 import type { ProductType } from "../../models/product.model";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Badge } from "../ui/badge";
 import {
   Carousel,
@@ -29,7 +29,11 @@ import { addCartItem } from "../../store/cart.store";
 import { useToast } from "../../hooks/use-toast";
 import { Rating } from "../atoms/Rating";
 
-export function Product(product: ProductType) {
+export function Product(
+  product: ProductType & {
+    extraKey: string;
+  }
+) {
   const {
     id,
     name,
@@ -38,6 +42,7 @@ export function Product(product: ProductType) {
     images,
     tags,
     ratings: { averageRating },
+    extraKey,
   } = product;
 
   const [open, setOpen] = useState<boolean>(false);
@@ -68,12 +73,47 @@ export function Product(product: ProductType) {
     [name, setOpen, toast]
   );
 
+  useEffect(() => {
+    const element = document.getElementById(`${id}-${extraKey}`)!;
+
+    const mouseMoveCb = (evt: any) => {
+      const { layerX, layerY } = evt;
+
+      const yRotation = ((layerX - 120 / 2) / 120) * 0.42;
+      const xRotation = ((layerY - 116 / 2) / 116) * 0.42;
+
+      element.style.transform = `
+    perspective(200px) 
+    scale(1) 
+    rotateX(${xRotation}deg) 
+    rotateY(${yRotation}deg)`;
+    };
+
+    element.addEventListener("mousemove", mouseMoveCb);
+
+    const mouseOutCb = () => {
+      element.style.transform = `
+    perspective(116px) 
+    scale(1) 
+    rotateX(0) 
+    rotateY(0)`;
+    };
+
+    element.addEventListener("mouseout", mouseOutCb);
+
+    return () => {
+      element.removeEventListener("mousemove", mouseMoveCb);
+      element.removeEventListener("mousedown", mouseOutCb);
+    };
+  }, [id]);
+
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger key={id} asChild>
+      <DialogTrigger key={id}>
         <Card
-          className="flex gap-5 w-full px-4 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 cursor-pointer border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground"
-          key={id}
+          id={`${id}-${extraKey}`}
+          key={`${id}-${extraKey}`}
+          className="flex p-2 shadow-chart-4 gap-5 w-full px-4 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 cursor-pointer border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground"
         >
           <div
             className="img-container"
@@ -97,14 +137,14 @@ export function Product(product: ProductType) {
             <CardTitle className="m-0 p-0 w-0">{name}</CardTitle>
             <CardDescription className="w-0">{description}</CardDescription>
             {discounted ? (
-              <CardDescription className="text-red-400 font-bold">
+              <CardDescription className="text-red-700 font-bold text-start">
                 {getPrice(discounted)}{" "}
-                <span className="ml-0.5 line-through text-xs text-red-300">
+                <span className="ml-0.5 line-through text-xs text-slate-500">
                   {getPrice(original)}
                 </span>
               </CardDescription>
             ) : (
-              <CardDescription className="text-red-400 font-bold">
+              <CardDescription className="text-red-600 font-bold text-start">
                 {getPrice(original)}
               </CardDescription>
             )}
@@ -147,7 +187,11 @@ export function Product(product: ProductType) {
           </div>
         </DialogHeader>
         <DialogFooter className="items-end">
-          <Button type="submit" onClick={() => buyClick(product)}>
+          <Button
+            type="submit"
+            onClick={() => buyClick(product)}
+            aria-label="Product item"
+          >
             Buy {getPrice(discounted ?? original)}
           </Button>
         </DialogFooter>

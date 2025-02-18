@@ -3,6 +3,7 @@ import NavigationBar from "../components/organisms/NavigationBar.astro";
 import SubHeader from "../components/organisms/SubHeader.astro";
 import Footer from "../components/organisms/Footer.astro";
 import { Toaster } from "../components/ui/toaster";
+import Background from "../components/atoms/Background.astro";
 ---
 
 <!doctype html>
@@ -10,17 +11,27 @@ import { Toaster } from "../components/ui/toaster";
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/ico" href="/favicon.ico" />
-    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content="A e-commerce website!" />
+    <meta name="keywords" content="e-commerce,astro,react,portfolio,lukadevv" />
     <meta
       name="viewport"
-      content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=0"
+      content="width=device-width, height=device-height, initial-scale=1"
+    />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/ico" href="/ecommerce/favicon.ico" />
+    <link rel="manifest" href="/ecommerce/manifest.json" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:wght@200;300;400;500;700;800&family=Roboto+Mono:wght@700&display=swap"
+      rel="stylesheet"
     />
 
     <title>E-Commerce</title>
   </head>
   <body>
-    <!-- <Toaster client:load /> -->
+    <Background />
+    <Toaster client:load />
     <header>
       <NavigationBar />
       <SubHeader />
@@ -34,5 +45,6 @@ import { Toaster } from "../components/ui/toaster";
   html,
   body {
     margin: 0;
+    font-family: "Poppins", serif;
   }
 </style>

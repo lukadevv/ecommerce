@@ -1,12 +1,74 @@
 ---
 import { GithubButton } from "../atoms/GitHubButton";
+import Logo from "../atoms/Logo.astro";
+import { Button } from "../ui/button";
+import FooterColumn from "./FooterColumn.astro";
 ---
 
-<footer class="w-full relative mt-10 bg-slate-500">
+<footer class="w-full mt-36 p-4">
+  <section class="bg-slate-600 p-8 rounded-4xl my-4">
+    <div
+      class="grid mb-2 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 max-[360px]:grid-cols-1 gap-4"
+    >
+      <div class="h-48">
+        <Logo size={90} />
+      </div>
+      <FooterColumn
+        title="Products"
+        content={[
+          {
+            text: "Trending Products",
+          },
+          {
+            text: "Best Sellers",
+          },
+          {
+            text: "Newest",
+          },
+        ]}
+      />
+      <FooterColumn
+        title="Company"
+        content={[
+          {
+            text: "About",
+          },
+          {
+            text: "News",
+          },
+        ]}
+      />
+      <FooterColumn
+        title="Contact"
+        content={[
+          {
+            text: "Discord",
+          },
+          {
+            text: "Instagram",
+          },
+          {
+            text: "GitHub",
+            href: "https://lukadevv.github.io",
+          },
+        ]}
+      />
+    </div>
+  </section>
   <div
-    class="flex flex-col w-max m-auto py-6 justify-center items-center gap-4"
+    class="w-full flex justify-between items-end bg-slate-800 rounded-xl px-4"
   >
-    <p class="font-bold uppercase text-slate-100">Github</p>
-    <GithubButton />
+    <p class="text-sm text-slate-500">© 2025 lukadevv. All rights reserved</p>
+    <div class="my-1">
+      <GithubButton />
+    </div>
+    <div class="text-end">
+      <Button variant="link" className="w-fit text-slate-500"
+        >Privacy Policy
+      </Button>
+      <Button variant="link" className="w-fit text-slate-500"
+        >Terms of Service
+      </Button>
+    </div>
   </div>
 </footer>

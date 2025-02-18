@@ -1,0 +1,29 @@
+---
+
+---
+
+<div
+  class="from-slate-300 via-slate-50 to-slate-400 dark:from-purple-400 dark:via-border dark:to-pink-950 -z-50 fixed w-full h-screen bg-gradient-to-r animated-gradient"
+>
+</div>
+
+<style>
+  @keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .animated-gradient {
+    background-size: 200% 200%;
+    animation: gradientAnimation 11s cubic-bezier(0.65, 0.33, 0.02, 0.82)
+      infinite;
+  }
+</style>
+<!-- from-background via-background to-slate-50 -->

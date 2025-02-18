@@ -10,12 +10,16 @@ const { products } = Astro.props;
 ---
 
 <section id="products" class="mt-8">
-  <h5 class="font-bold ml-2 uppercase">
+  <p class="font-bold ml-2 uppercase">
     products ({products.length})
-  </h5>
+  </p>
   <div
-    class="grid gap-3 w-full items-start mt-5 xl:grid-cols-3 lg:grid-cols-2"
+    class="min-[330px]:grid max-[330px]:flex max-[330px]:flex-col gap-3 min-[330px]:w-full min-[330px]:items-start mt-5 xl:grid-cols-3 lg:grid-cols-2"
   >
-    {products.map((product) => <Product client:load {...product} />)}
+    {
+      products.map((product) => (
+        <Product client:load {...product} extraKey="view" />
+      ))
+    }
   </div>
 </section>
