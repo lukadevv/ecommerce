@@ -12,7 +12,7 @@ export default defineConfig({
   integrations: [
     react(),
     AstroPWA({
-      manifestFilename: "/ecommerce/manifest.json",
+      manifestFilename: "manifest.json",
       devOptions: {
         enabled: true,
         type: "module",
