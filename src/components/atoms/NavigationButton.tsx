@@ -13,7 +13,7 @@ export function NavigationButton({
     <ButtonAnchor
       variant={"link"}
       href={href}
-      className={`uppercase text-white ${className}`}
+      className={`capitalize text-yellow-200 ${className}`}
       aria-label="Navigation button"
     >
       {text}

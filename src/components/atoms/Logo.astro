@@ -1,6 +1,6 @@
 ---
 import { appendUrlPath } from "../../utils/path";
-import logo from "../../assets/logo.png";
+import logo from "../../assets/logo.webp";
 import { Image } from "astro:assets";
 
 type AstroProps = {
@@ -13,15 +13,16 @@ const { size } = Astro.props as AstroProps;
 <div
   style={{
     height: `${size * 0.3}px!important`,
-    width: `${size}px`,
-    transform: "translate(0, -65%)",
+    width: `${size * 0.8}px`,
+    transform: "translate(0, -35%)",
   }}
   class="hover:animate-pulse max-[200px]:hidden"
 >
   <a href={appendUrlPath("/")} aria-label="Home button">
     <Image
       src={logo}
-      width={size * 1.35}
+      width={794}
+      height={794}
       alt={"App logo"}
       style={{
         objectFit: "cover",

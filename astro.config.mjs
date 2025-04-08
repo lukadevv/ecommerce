@@ -8,7 +8,6 @@ import tailwindcss from "@tailwindcss/vite";
 // https://astro.build/config
 export default defineConfig({
   site: "https://lukadevv.github.io",
-  base: "/ecommerce",
   integrations: [
     react(),
     AstroPWA({
@@ -23,12 +22,12 @@ export default defineConfig({
         short_name: "e-commerce",
         icons: [
           {
-            src: "/ecommerce/android-chrome-192x192.png",
+            src: "/android-chrome-192x192.png",
             sizes: "192x192",
             type: "image/png",
           },
           {
-            src: "/ecommerce/android-chrome-512x512.png",
+            src: "/android-chrome-512x512.png",
             sizes: "512x512",
             type: "image/png",
           },

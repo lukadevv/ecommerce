@@ -3,7 +3,7 @@ import { appendUrlPath } from "../../utils/path";
 import { NavigationButton } from "../atoms/NavigationButton";
 ---
 
-<section class="bg-slate-500">
+<section class="bg-green-600 dark:bg-green-800">
   <div>
     <NavigationButton
       href={appendUrlPath("/")}
@@ -36,6 +36,8 @@ import { NavigationButton } from "../atoms/NavigationButton";
 
 <style>
   section {
+    box-shadow: #000000ba 0px -1px 2px 0px;
+
     div {
       display: flex;
       align-items: center;

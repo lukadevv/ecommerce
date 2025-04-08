@@ -13,7 +13,7 @@ interface Props {
 const { title, content } = Astro.props as Props;
 ---
 
-<div class="flex flex-col gap-4 border-l-1 border-slate-700 p-4 pl-6">
+<div class="flex flex-col gap-4 border-l-1 border-green-700 p-4 pl-6">
   <p class="mb-3 text-start text-slate-100 font-bold">{title}</p>
   {
     content.map(({ text, href }) =>

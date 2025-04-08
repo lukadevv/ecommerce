@@ -113,7 +113,7 @@ export function Product(
         <Card
           id={`${id}-${extraKey}`}
           key={`${id}-${extraKey}`}
-          className="flex p-2 shadow-chart-4 gap-5 w-full px-4 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 cursor-pointer border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground"
+          className="flex p-2 shadow-chart-4 gap-5 w-full px-4 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 cursor-pointer border border-input shadow-sm hover:bg-accent hover:text-accent-foreground"
         >
           <div
             className="img-container"
