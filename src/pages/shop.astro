@@ -1,0 +1,20 @@
+---
+import "../styles/global.css";
+import Layout from "../layouts/Layout.astro";
+import Banner from "../components/molecules/Banner.astro";
+import ShopTemplate from "../components/templates/ShopTemplate.astro";
+---
+
+<Layout>
+  <main>
+    <ShopTemplate />
+  </main>
+</Layout>
+
+<style>
+  main {
+    max-width: 1440px;
+    margin: auto;
+    padding: 15px 25px 25px 25px;
+  }
+</style>

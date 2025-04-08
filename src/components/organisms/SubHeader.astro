@@ -1,32 +1,27 @@
 ---
-import { appendUrlPath } from "../../utils/path";
 import { NavigationButton } from "../atoms/NavigationButton";
 ---
 
 <section class="bg-green-600 dark:bg-green-800">
   <div>
+    <NavigationButton href={"/"} text="home" className="max-[310px]:hidden" />
     <NavigationButton
-      href={appendUrlPath("/")}
-      text="home"
-      className="max-[310px]:hidden"
-    />
-    <NavigationButton
-      href={appendUrlPath("#products")}
+      href={"/shop"}
       text="shop"
       className="max-[715px]:hidden"
     />
     <NavigationButton
-      href={appendUrlPath("#products")}
+      href={"#products"}
       text="categories"
       className="max-[410px]:hidden"
     />
     <NavigationButton
-      href={appendUrlPath("#popular")}
+      href={"#products"}
       text="popular"
       className="max-[655px]:hidden"
     />
     <NavigationButton
-      href={appendUrlPath("#popular")}
+      href={"#products"}
       text="newest"
       className="max-[715px]:hidden"
     />
